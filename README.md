@@ -105,6 +105,41 @@ User: Write a PR description for my changes
 Claude: [Invokes Yago agent to analyze commits and generate description]
 ```
 
+### Yuta - Swift WebAssembly Compatibility Agent
+
+A specialized agent for analyzing and refactoring Swift code for WebAssembly compatibility.
+
+### When to use:
+
+- Checking if Swift packages are compatible with WASM
+- Identifying incompatible Apple frameworks in code
+- Refactoring code with conditional compilation for cross-platform support
+- Building and testing Swift projects with the WASM toolchain
+- Finding WASM-safe alternatives for platform-specific APIs
+
+### Features:
+
+- Detects incompatible frameworks: UIKit, SwiftUI, CoreGraphics, CoreML, URLSession, Accelerate, AVFoundation, Network
+- Analyzes Package.swift for WASM-incompatible dependencies
+- Identifies binary targets (xcframeworks) that lack WASM slices
+- Suggests `#if canImport()` conditional compilation patterns
+- Attempts WASM builds using local Swift WASM toolchain
+- Provides compatibility assessment: compatible, partially compatible, or incompatible
+- Recommends WASM-safe alternatives (e.g., Matft for Accelerate, ONNX for CoreML)
+
+### Example:
+
+```
+User: Can you check if my StringUtils package is compatible with Swift WASM?
+Claude: [Invokes Yuta agent to analyze package and attempt WASM build]
+
+User: This code uses Accelerate, can you make it work on WASM?
+Claude: [Invokes Yuta agent to refactor with conditional compilation and fallback]
+
+User: I'm getting URLSession errors when building for WASM
+Claude: [Invokes Yuta agent to identify networking incompatibilities and suggest alternatives]
+```
+
 ## Requirements
 
 - [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) installed
