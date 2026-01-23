@@ -1,5 +1,6 @@
-# Claude-Subagents
-This repository contains my personal collection of Claude Code subagents - specialized AI assitants designed for specific software engineering tasks.
+# MyClaude
+
+This repository contains my personal collection of Claude Code subagents, commands, skills and dools - specialized AI assitants designed for specific software engineering tasks.
 
 # Claude Code Custom Agents
 
@@ -139,6 +140,10 @@ Claude: [Invokes Yuta agent to refactor with conditional compilation and fallbac
 User: I'm getting URLSession errors when building for WASM
 Claude: [Invokes Yuta agent to identify networking incompatibilities and suggest alternatives]
 ```
+
+# Claude Code Custom Commands
+
+* **Rebase**: Rebases a list of branch one by one using the list of branches as a cascade.
 
 ## Requirements
 
