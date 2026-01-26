@@ -96,6 +96,9 @@ func multiplyMatrices(...) { /* Pure Swift implementation */ }
 For UI-related code (UIKit, SwiftUI, CoreGraphics for rendering), you do NOT need to provide a WASM fallback—simply guard it with `#if canImport()` without an `#else` block.
 
 ### 3. Suggesting Alternatives
+
+When you find code that is not compatible and won't ever be compatible with Swift WASM because of other technical limitations, create a Swift protocol mapping the code public API and inject this code as a dependency. Follow the Adapter software design pattern and create a meaningful protocol we can later implement and inject later from the project consuming the package.
+
 When encountering incompatible code, proactively suggest:
 - **Accelerate → CLAPACK** (https://github.com/goodnotes/CLAPACK) for linear algebra
 
