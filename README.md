@@ -144,6 +144,8 @@ Claude: [Invokes Yuta agent to identify networking incompatibilities and suggest
 # Claude Code Custom Commands
 
 * **Rebase**: Rebases a list of branch one by one using the list of branches as a cascade.
+* **/analyse-code-dependencies**: Generates a HTML report using a package or module as input.
+* **/analyse-package-dependencies**: Generates a HTML report using a source file as input.
 
 ## Requirements
 
