@@ -7,7 +7,6 @@ Agents involved:
 * **Raúl — Software Architect & Code Reviewer**
 * **Natalia — Test Engineer**
 * **Pedro — Software Engineer**
-* **Yago — Release Engineer (PR preparation)**
 
 This workflow enforces:
 
@@ -18,8 +17,6 @@ This workflow enforces:
 * architecture validation
 * strict code review
 * optional branch creation
-* PR creation only after explicit confirmation
-* usage of the repository PR template
 
 ---
 
@@ -31,9 +28,7 @@ If the user explicitly requests using **agent teams** and the `CLAUDE_CODE_EXPER
 * **Raúl** (teammate): architecture design, architecture review, code review
 * **Natalia** (teammate): writes one failing test per cycle
 * **Pedro** (teammate): implements minimal code to pass each test, refactoring
-* **Yago** (teammate): PR preparation
-
-Spawn Raúl first for architecture. During TDD cycles, the lead strictly enforces the red→green loop: message Natalia to write one test, wait for confirmation it fails, then message Pedro to make it pass. Teammates must **not** proceed out of order. Spawn Yago only after reviews pass. Require **plan approval** for Raúl's architecture plan.
+Spawn Raúl first for architecture. During TDD cycles, the lead strictly enforces the red→green loop: message Natalia to write one test, wait for confirmation it fails, then message Pedro to make it pass. Teammates must **not** proceed out of order. Require **plan approval** for Raúl's architecture plan.
 
 If agent teams are **not requested**, use subagents as described below.
 
@@ -72,8 +67,6 @@ The workflow follows **strict TDD cycles**:
 4. Refactoring (Pedro)
 5. Architecture review (Raúl)
 6. Code review (Raúl)
-7. PR preparation (Yago)
-8. User confirmation before PR creation
 
 ---
 
@@ -418,69 +411,6 @@ Return to **Pedro** for improvements.
 
 ---
 
-# Step 6 — PR Preparation (Yago)
-
-Agent: **Yago**
-
-Prepare the Pull Request proposal.
-
----
-
-## Create Commit
-
-```
-git add .
-git commit -m "Feature: <ticket or short feature description>"
-```
-
----
-
-## Push Branch
-
-```
-git push origin <branch-name>
-```
-
----
-
-## Prepare PR Draft
-
-Yago must:
-
-1. Locate the **repository PR template**
-2. Populate it with information from the workflow
-3. Present the PR proposal
-
-Yago **must not create the PR yet**.
-
----
-
-## PR Proposal Output
-
-Branch name
-
-Commit message
-
-PR title
-
-PR body using the repository template
-
----
-
-# Final Step — User Confirmation
-
-Ask the user:
-
-```
-Do you want me to create the Pull Request using this information? (yes/no)
-```
-
-If **yes** → create the PR.
-
-If **no** → allow modifications.
-
----
-
 # Final Output
 
 Branch name
@@ -488,11 +418,3 @@ Branch name
 Tests created
 
 Files modified
-
-Commit message
-
-Proposed PR title
-
-Proposed PR body
-
-Confirmation request

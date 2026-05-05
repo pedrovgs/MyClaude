@@ -26,9 +26,7 @@ If the user explicitly requests using **agent teams** and the `CLAUDE_CODE_EXPER
 * **Raúl** (teammate): architecture planning + code review
 * **Pedro** (teammate): implementation + refactoring
 * **Natalia** (teammate): automated tests + coverage validation
-* **Yago** (teammate): PR creation
-
-Spawn Raúl first for architecture. After plan approval, spawn Pedro and Natalia in parallel (Natalia can start writing tests from the architecture plan while Pedro implements). Spawn Yago only after the quality gate passes. Require **plan approval** for Raúl's architecture plan and Pedro's implementation approach.
+Spawn Raúl first for architecture. After plan approval, spawn Pedro and Natalia in parallel (Natalia can start writing tests from the architecture plan while Pedro implements). Require **plan approval** for Raúl's architecture plan and Pedro's implementation approach.
 
 If agent teams are **not requested**, use subagents as described below.
 
@@ -68,10 +66,6 @@ Responsible for implementation, refactoring, and final code review.
 ### Natalia — Principal Software Engineer (Testing)
 
 Responsible for automated tests and coverage validation.
-
-### Yago — PR writer
-
-Responsible for creating the PR and detailing the solution applied
 
 ---
 
@@ -261,22 +255,9 @@ Analyze the code and identify likely missing test scenarios.
 
 ---
 
-# Step 7 — Pull Request Creation
-
-Agent: **Yago**
-
-Create the pull request for the feature implemented.
-
-## Tasks
-
-1. Create the pull request.
-2. Show a message with the PR link.
-
----
-
 # Quality Gate
 
-Before declaring the feature complete and create the pull request ensure:
+Before declaring the feature complete ensure:
 
 * code compiles
 * lint passes
@@ -303,7 +284,6 @@ Provide:
 
 ## Coverage Improvements
 
-## Pull Request link
 ```
 
 ---

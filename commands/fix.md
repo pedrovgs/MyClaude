@@ -7,8 +7,6 @@ The workflow includes:
 * optional **bugfix branch creation**
 * **failing test before implementation**
 * **automated verification**
-* **explicit user approval before creating a PR**
-* **use of the repository Pull Request template**
 
 ---
 
@@ -44,8 +42,6 @@ Execution order:
 3. Pedro implements the fix
 4. Pedro checks all tests are passing and lint command passes as well
 5. Verify tests
-6. Yago prepares the PR request
-7. Wait for user confirmation before creating the PR
 
 If **Natalia cannot reproduce the bug with a failing test, pause the workflow and tell the user.** 
 
@@ -60,9 +56,7 @@ If the user explicitly requests using **agent teams** and the `CLAUDE_CODE_EXPER
 * **Lead**: coordinates the workflow, enforces gates, synthesizes results
 * **Natalia** (teammate): reproduces the bug with a failing test
 * **Pedro** (teammate): implements the minimal fix
-* **Yago** (teammate): prepares the PR
-
-Spawn teammates as needed per step. The lead enforces Gate 1 (failing test exists) before messaging Pedro to begin. Yago should only be spawned after Gate 2 passes. Require **plan approval** for Pedro before he starts implementing.
+Spawn teammates as needed per step. The lead enforces Gate 1 (failing test exists) before messaging Pedro to begin. Require **plan approval** for Pedro before he starts implementing.
 
 If agent teams are **not requested**, use subagents as described below.
 
@@ -120,7 +114,7 @@ git pull
 git checkout -b cpf/fix-<name>
 ```
 
-Record the branch name for later PR creation.
+Record the branch name.
 
 ---
 
@@ -273,77 +267,6 @@ Pedro must resolve before continuing.
 
 ---
 
-# Step 3 — Yago (Release Engineer)
-
-Agent: **Yago**
-
-Role: prepare the Pull Request proposal.
-
----
-
-## Responsibilities
-
-### Prepare Commit
-
-```
-git add .
-git commit -m "Fix: <ticket or short bug description>"
-```
-
----
-
-### Push Branch
-
-```
-git push origin <branch-name>
-```
-
----
-
-### Prepare Pull Request Draft
-
-Yago **must not create the PR yet**.
-
-Instead:
-
-1. Locate the repository **Pull Request template**
-2. Populate it with the relevant information
-3. Present the PR content for review
-
-The repository template must be used exactly as defined.
-
----
-
-## PR Proposal Output
-
-Branch name
-
-Commit message
-
-Proposed PR title
-
-Proposed PR body (filled using the repo template)
-
----
-
-# Final Step — User Confirmation
-
-Ask the user:
-
-```
-Do you want me to create the Pull Request using this information? (yes/no)
-```
-
-If the user answers **yes**:
-
-Create the PR using the repository template.
-
-If the user answers **no**:
-
-Allow edits before creating the PR.
-
----
-
 # Final Output
 
 Branch name
@@ -351,9 +274,3 @@ Branch name
 Failing test path
 
 Files modified
-
-Commit message
-
-Proposed PR content
-
-Confirmation request
